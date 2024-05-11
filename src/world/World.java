@@ -61,10 +61,53 @@ public class World {
         creatures.add(creature);
     }
 
+    private List<Point> get_hex_neighbours(Point position, boolean include_ocupied){
+
+        return null;
+    }
+
+    private List<Point> get_square_neighbours(Point position, boolean include_occupied){
+        List<Point> res = new ArrayList<Point>();
+        if (position.x - 1 >= 0){
+            if (include_occupied || world_map[position.x - 1][position.y] == null){
+                res.add(new Point(position.x - 1, position.y));
+            }
+        }
+
+        if (position.x + 1 < width){
+            if (include_occupied || world_map[position.x + 1][position.y] == null){
+                res.add(new Point(position.x + 1, position.y));
+            }
+        }
+
+        if (position.y - 1 >= 0){
+            if (include_occupied || world_map[position.x][position.y - 1] == null){
+                res.add(new Point(position.x, position.y - 1));
+            }
+        }
+
+        if (position.y + 1 < height){
+            if (include_occupied || world_map[position.x][position.y + 1] == null){
+                res.add(new Point(position.x, position.y + 1));
+            }
+        }
+
+        return res;
+
+    }
+
     public List<Point> get_neighbours(Point position, boolean include_ocupied) {
         // Get neighbours of the position
 
-        return null;
+        List<Point> res;
+
+        if (map_type){
+            res = get_hex_neighbours(position, include_ocupied);
+        } else {
+            res = get_square_neighbours(position, include_ocupied);
+        }
+
+        return res;
     }
 
     public void print_creatures() {
