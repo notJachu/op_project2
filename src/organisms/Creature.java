@@ -1,0 +1,75 @@
+package organisms;
+
+import organisms.animals.Antylopa;
+import organisms.animals.Wolf;
+import organisms.plants.Trawa;
+import world.World;
+
+import java.awt.*;
+
+public class Creature {
+    // put here all types
+    public final static Class<?>[] organisms = {
+            Wolf.class,
+            Antylopa.class,
+            Trawa.class
+    };
+
+    protected int power;
+    protected int initiative;
+    protected int age;
+    protected Point position;
+    protected World my_world;
+
+    public Creature() {
+        this.power = 0;
+        this.initiative = 0;
+        this.age = 0;
+        this.position = new Point(-1, -1);
+    }
+
+    public Creature(int power, int initiative, int age, Point position) {
+        this.power = power;
+        this.initiative = initiative;
+        this.age = age;
+        this.position = position;
+    }
+
+    public void action() {
+        // do something
+    }
+
+    public boolean collision(Creature other) {
+        return false;
+    }
+
+    public void kill() {
+        // kill the organism
+    }
+
+    public void set_world(World world) {
+        this.my_world = world;
+    }
+
+    public void set_position(Point position) {
+        this.position = position;
+    }
+
+    public Creature create_creature(Class<?> organism) {
+        Creature creature = null;
+        for (Class<?> org : organisms) {
+            if (org == organism) {
+                try {
+                    creature = (Creature) organism.getConstructors()[0].newInstance();
+                } catch (Exception e) {
+                    throw new RuntimeException(e);
+                }
+            }
+        }
+        return creature;
+    }
+
+    public Point get_position() {
+        return this.position;
+    }
+}

@@ -1,7 +1,7 @@
 package organisms.animals;
-import organisms.Organism;
+import organisms.Creature;
 
-public class Wolf extends Organism {
+public class Wolf extends Creature {
 
 
 }

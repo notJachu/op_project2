@@ -1,6 +1,6 @@
 package organisms.animals;
 
-import organisms.Organism;
+import organisms.Creature;
 
-public class Antylopa extends Organism {
+public class Antylopa extends Creature {
 }
