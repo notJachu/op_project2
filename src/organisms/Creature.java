@@ -6,6 +6,7 @@ import organisms.plants.Trawa;
 import world.World;
 
 import java.awt.*;
+import java.util.Comparator;
 
 public class Creature {
     // put here all types
@@ -35,8 +36,19 @@ public class Creature {
         this.position = position;
     }
 
+    public static class compare_creatures implements Comparator<Creature> {
+
+        public int compare(Creature a, Creature b){
+            return a.initiative - b.initiative;
+        }
+    }
+
     public void action() {
         // do something
+    }
+
+    public void increment_age(int amount){
+        this.age += amount;
     }
 
     public boolean collision(Creature other) {

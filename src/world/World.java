@@ -1,17 +1,20 @@
 package world;
 import java.awt.Point;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import organisms.Creature;
 
 public class World {
-    private boolean map_type;
-    private int width;
-    private int height;
+    private final boolean map_type;
+    private final int width;
+    private final int height;
     private int ability_cooldown;
     Creature[][] world_map;
     List<Creature> creatures;
 
+
+    //CLASS INIT
 
     private void generate_world() {
         // Generate world
@@ -43,9 +46,25 @@ public class World {
 
     }
 
-    public void set_map_type(boolean map_type) {
-        this.map_type = map_type;
+    //GETTERS
+
+    public int get_height(){
+        return this.height;
     }
+
+    public int get_width(){
+        return this.width;
+    }
+
+    public int get_ability_cooldown(){
+        return this.ability_cooldown;
+    }
+
+    public boolean get_map_type(){
+        return this.map_type;
+    }
+
+    //LOGIC
 
     public void remove_creature(Creature creature) {
         // Remove creature from the world
@@ -60,6 +79,8 @@ public class World {
         world_map[position.x][position.y] = creature;
         creatures.add(creature);
     }
+
+
 
     private List<Point> get_hex_neighbours(Point position, boolean include_ocupied){
 
@@ -93,7 +114,6 @@ public class World {
         }
 
         return res;
-
     }
 
     public List<Point> get_neighbours(Point position, boolean include_ocupied) {
@@ -119,6 +139,19 @@ public class World {
 
     public void play_turn() {
         // Play one turn
+
+        // sort creatures by initiative
+        creatures.sort(new Creature.compare_creatures());
+
+        for (Creature creature: creatures){
+            creature.action();
+        }
+
+        // loop twice so all creatures age at once
+        for (Creature creature: creatures){
+            creature.increment_age(1);
+        }
+
     }
 
 }
