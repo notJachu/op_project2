@@ -3,7 +3,6 @@ package organisms.plants;
 import organisms.Creature;
 
 import java.awt.*;
-import java.lang.reflect.InvocationTargetException;
 import java.util.Random;
 import java.util.List;
 
@@ -20,9 +19,9 @@ public class Plant extends Creature {
             Random rnd = new Random();
 
             int will_plant = rnd.nextInt(100);
-            if (will_plant > 25){
-                return;
-            }
+//            if (will_plant > 25){
+//                return;
+//            }
 
             List<Point> neighbours = my_world.get_neighbours(position, false);
 
@@ -46,7 +45,28 @@ public class Plant extends Creature {
             creature.set_position(neighbours.get(pos));
             my_world.add_creature(creature);
 
-
         }
+
+        @Override
+        public void action() {
+            plant_new(this.position);
+        }
+
+        @Override
+        public boolean collision(Creature other) {
+            return true;
+        }
+
+    @Override
+    public String toString() {
+        return "Plant{" +
+                "type=" + this.getClass().getSimpleName() +
+                ", power=" + power +
+                ", initiative=" + initiative +
+                ", age=" + age +
+                ", position=" + position +
+                ", my_world=" + my_world +
+                '}';
+    }
 
 }

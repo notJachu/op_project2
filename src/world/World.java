@@ -74,6 +74,7 @@ public class World {
 
     public void add_creature(Creature creature) {
         // Add creature to the world
+        creature.set_world(this);
         Point position = creature.get_position();
         world_map[position.x][position.y] = creature;
         creatures.add(creature);
@@ -142,12 +143,16 @@ public class World {
         // sort creatures by initiative
         creatures.sort(new Creature.compare_creatures());
 
-        for (Creature creature: creatures){
+        int creatures_size = creatures.size();
+
+        for (int i = 0; i < creatures_size; i++){
+            Creature creature = creatures.get(i);
             creature.action();
         }
 
         // loop twice so all creatures age at once
-        for (Creature creature: creatures){
+        for (int i = 0; i < creatures_size; i++){
+            Creature creature = creatures.get(i);
             creature.increment_age(1);
         }
 

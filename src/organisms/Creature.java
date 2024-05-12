@@ -47,12 +47,12 @@ public class Creature {
         // do something
     }
 
-    public void increment_age(int amount){
-        this.age += amount;
-    }
-
     public boolean collision(Creature other) {
         return false;
+    }
+
+    public void increment_age(int amount){
+        this.age += amount;
     }
 
     public void kill() {
@@ -85,4 +85,16 @@ public class Creature {
     public Point get_position() {
         return this.position;
     }
+
+    @Override
+    public String toString() {
+        return "Creature{" +
+                "power=" + power +
+                ", initiative=" + initiative +
+                ", age=" + age +
+                ", position=" + position +
+                ", my_world=" + my_world +
+                '}';
+    }
+
 }

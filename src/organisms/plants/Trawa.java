@@ -12,5 +12,4 @@ public class Trawa extends Plant {
         super(power, initiative, age, position);
     }
 
-
 }
