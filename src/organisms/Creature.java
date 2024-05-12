@@ -86,6 +86,24 @@ public class Creature {
         return this.position;
     }
 
+    public int get_power() {
+        return this.power;
+    }
+
+    public int get_initiative() {
+        return this.initiative;
+    }
+
+    public int get_age() {
+        return this.age;
+    }
+
+    public World get_world() {
+        return this.my_world;
+    }
+
+
+
     @Override
     public String toString() {
         return "Creature{" +
