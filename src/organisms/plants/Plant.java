@@ -25,13 +25,7 @@ public class Plant extends Creature {
 
             List<Point> neighbours = my_world.get_neighbours(position, false);
 
-            Creature creature = null;
-            for (Class<?> organism : organisms) {
-               if (organism == this.getClass()){
-                     creature = create_creature(organism);
-                        break;
-               }
-            }
+            Creature creature = create_creature(this.getClass());
 
             if (creature == null){
                 return;
