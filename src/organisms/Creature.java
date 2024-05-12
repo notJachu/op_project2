@@ -57,6 +57,7 @@ public class Creature {
 
     public void kill() {
         // kill the organism
+        my_world.remove_creature(this);
     }
 
     public void set_world(World world) {
