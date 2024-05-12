@@ -48,6 +48,34 @@ public class Animal extends Creature {
         return true;
     }
 
+    @Override
+    public void action() {
+        Point new_position = move_target();
+        Creature other = my_world.get_creature(new_position);
+
+        if (other == null){
+            my_world.update_creature_position(this, new_position);
+        } else if (other.getClass() == this.getClass()){
+            this.reproduce();
+        } else {
+            if (other.collision(this)){
+                my_world.update_creature_position(this, new_position);
+            }
+        }
+    }
+
+    @Override
+    public boolean collision(Creature other) {
+        int pow = other.get_power();
+        if (pow < this.power){
+            other.kill();
+            return false;
+        } else {
+            this.kill();
+            return true;
+        }
+    }
+
 
     @Override
     public String toString() {
