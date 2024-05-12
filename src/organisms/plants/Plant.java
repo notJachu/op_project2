@@ -19,9 +19,9 @@ public class Plant extends Creature {
             Random rnd = new Random();
 
             int will_plant = rnd.nextInt(100);
-//            if (will_plant > 25){
-//                return;
-//            }
+            if (will_plant < 25){
+                return;
+            }
 
             List<Point> neighbours = my_world.get_neighbours(position, false);
 

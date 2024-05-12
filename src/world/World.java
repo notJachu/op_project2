@@ -63,6 +63,10 @@ public class World {
         return this.map_type;
     }
 
+    public Creature get_creature(Point position){
+        return world_map[position.x][position.y];
+    }
+
     //LOGIC
 
     public void remove_creature(Creature creature) {
@@ -78,6 +82,14 @@ public class World {
         Point position = creature.get_position();
         world_map[position.x][position.y] = creature;
         creatures.add(creature);
+    }
+
+    public void update_creature_position(Creature creature, Point new_position){
+        // Update creature position
+        Point old_position = creature.get_position();
+        world_map[old_position.x][old_position.y] = null;
+        world_map[new_position.x][new_position.y] = creature;
+        creature.set_position(new_position);
     }
 
 
