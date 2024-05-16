@@ -2,6 +2,7 @@ import organisms.Creature;
 import organisms.plants.Plant;
 import organisms.plants.Trawa;
 import world.World;
+import world.HexWorld;
 
 import java.awt.*;
 
@@ -18,6 +19,7 @@ public class Main {
 //        world.remove_creature(creature);
         world.play_turn();
         world.print_creatures();
+
 
     }
 }

@@ -6,8 +6,8 @@ import organisms.Creature;
 
 public class World {
     private final boolean map_type;
-    private final int width;
-    private final int height;
+    protected final int width;
+    protected final int height;
     private int ability_cooldown;
     Creature[][] world_map;
     List<Creature> creatures;
@@ -94,12 +94,9 @@ public class World {
 
 
 
-    private List<Point> get_hex_neighbours(Point position, boolean include_ocupied){
+    public List<Point> get_neighbours(Point position, boolean include_occupied) {
+        // Get neighbours of the position
 
-        return null;
-    }
-
-    private List<Point> get_square_neighbours(Point position, boolean include_occupied){
         List<Point> res = new ArrayList<Point>();
         if (position.x - 1 >= 0){
             if (include_occupied || world_map[position.x - 1][position.y] == null){
@@ -123,20 +120,6 @@ public class World {
             if (include_occupied || world_map[position.x][position.y + 1] == null){
                 res.add(new Point(position.x, position.y + 1));
             }
-        }
-
-        return res;
-    }
-
-    public List<Point> get_neighbours(Point position, boolean include_ocupied) {
-        // Get neighbours of the position
-
-        List<Point> res;
-
-        if (map_type){
-            res = get_hex_neighbours(position, include_ocupied);
-        } else {
-            res = get_square_neighbours(position, include_ocupied);
         }
 
         return res;
