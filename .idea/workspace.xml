@@ -4,18 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="55822722-b209-4213-a5ed-3e480e6c8275" name="Changes" comment="Overwritten get_neighbours for hex world">
-      <change afterPath="$PROJECT_DIR$/src/organisms/animals/CyberOwca.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/organisms/animals/Owca.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/organisms/plants/BarszczSosnowskiego.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/organisms/plants/Guarana.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/organisms/plants/Mlecz.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/copilot/chatSessions/00000000000.xd" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/copilot/chatSessions/00000000000.xd" afterDir="false" />
+    <list default="true" id="55822722-b209-4213-a5ed-3e480e6c8275" name="Changes" comment="Minor changes">
+      <change afterPath="$PROJECT_DIR$/src/organisms/animals/Lis.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/organisms/Creature.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/organisms/Creature.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/organisms/animals/Antylopa.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/organisms/animals/Antylopa.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/organisms/plants/Plant.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/organisms/plants/Plant.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/world/HexWorld.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/world/HexWorld.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -154,7 +145,55 @@
       <option name="project" value="LOCAL" />
       <updated>1715877091083</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="Implemented Owca">
+      <option name="closed" value="true" />
+      <created>1715976996599</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1715976996599</updated>
+    </task>
+    <task id="LOCAL-00010" summary="Implemented Mlecz">
+      <option name="closed" value="true" />
+      <created>1715977011723</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1715977011723</updated>
+    </task>
+    <task id="LOCAL-00011" summary="Implemented Guarana">
+      <option name="closed" value="true" />
+      <created>1715977024942</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1715977024942</updated>
+    </task>
+    <task id="LOCAL-00012" summary="Implemented BarszczSosnowskiego">
+      <option name="closed" value="true" />
+      <created>1715977037999</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1715977037999</updated>
+    </task>
+    <task id="LOCAL-00013" summary="Implemented Antylopa">
+      <option name="closed" value="true" />
+      <created>1715977047134</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1715977047134</updated>
+    </task>
+    <task id="LOCAL-00014" summary="Minor changes">
+      <option name="closed" value="true" />
+      <created>1715977078490</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1715977078490</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -193,6 +232,12 @@
     <MESSAGE value="added getters for Creature" />
     <MESSAGE value="Animal collision and action implemented" />
     <MESSAGE value="Overwritten get_neighbours for hex world" />
-    <option name="LAST_COMMIT_MESSAGE" value="Overwritten get_neighbours for hex world" />
+    <MESSAGE value="Implemented Owca" />
+    <MESSAGE value="Implemented Mlecz" />
+    <MESSAGE value="Implemented Guarana" />
+    <MESSAGE value="Implemented BarszczSosnowskiego" />
+    <MESSAGE value="Implemented Antylopa" />
+    <MESSAGE value="Minor changes" />
+    <option name="LAST_COMMIT_MESSAGE" value="Minor changes" />
   </component>
 </project>
