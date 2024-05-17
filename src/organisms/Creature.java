@@ -68,6 +68,10 @@ public class Creature {
         this.position = position;
     }
 
+    public void set_power(int power) {
+        this.power = power;
+    }
+
     public Creature create_creature(Class<?> organism) {
         Creature creature = null;
         for (Class<?> org : organisms) {

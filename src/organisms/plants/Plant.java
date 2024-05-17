@@ -15,7 +15,7 @@ public class Plant extends Creature {
             super(power, initiative, age, position);
         }
 
-        private void plant_new(Point position) {
+        protected void plant_new(Point position) {
             Random rnd = new Random();
 
             int will_plant = rnd.nextInt(100);

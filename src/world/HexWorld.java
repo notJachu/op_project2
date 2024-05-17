@@ -37,5 +37,4 @@ public class HexWorld extends World{
 
         return res;
     }
-
 }
