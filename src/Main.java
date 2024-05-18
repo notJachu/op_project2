@@ -1,9 +1,11 @@
 import organisms.Creature;
 import organisms.plants.Plant;
 import organisms.plants.Trawa;
+import window.MainWindow;
 import world.World;
 import world.HexWorld;
 
+import javax.swing.*;
 import java.awt.*;
 
 public class Main {
@@ -20,6 +22,12 @@ public class Main {
         world.play_turn();
         world.print_creatures();
 
-
+        SwingUtilities.invokeLater(new Runnable() {
+            @Override
+            public void run() {
+                MainWindow main_window = new MainWindow();
+                main_window.show();
+            }
+        });
     }
 }
