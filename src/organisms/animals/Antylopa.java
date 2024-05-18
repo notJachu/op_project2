@@ -35,10 +35,11 @@ public class Antylopa extends Creature {
 
     @Override
     public boolean collision(Creature other) {
-        if (Math.random() < 0.5) {
-            return super.collision(other);
-        } else {
-            return false;
-        }
+       boolean run = run_away();
+       if (run){
+           return true;
+       } else {
+           return super.collision(other);
+       }
     }
 }
