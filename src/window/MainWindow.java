@@ -88,7 +88,8 @@ public class MainWindow {
         button.setFocusable(false);
         button.addActionListener(e -> {
             world.play_turn();
-            world.print_creatures();
+            //world.print_creatures();
+            System.out.println(world.get_creatures_size());
             System.out.println("Next turn");
             drawPanel.repaint();
         });

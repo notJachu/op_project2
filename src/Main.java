@@ -12,7 +12,7 @@ public class Main {
     public static void main(String[] args) {
 //        Creature creature = new Creature(1, 1, 1, new Point(1, 2));
 //        Plant plant = new Plant(0, 0, 0, new Point(1, 1));
-        Trawa trawa = new Trawa(0, 0, 0, new Point(1, 3));
+        Trawa trawa = new Trawa(0, 0, 0, new Point(0, 1));
         World world = new World();
 //        world.add_creature(creature);
 //        world.add_creature(plant);

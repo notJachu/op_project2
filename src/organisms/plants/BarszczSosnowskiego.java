@@ -31,6 +31,7 @@ public class BarszczSosnowskiego extends Plant{
             other.kill();
             return false;
         }
+        my_world.remove_creature(this);
         return true;
     }
 }

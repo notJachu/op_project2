@@ -55,6 +55,10 @@ public class World {
         return this.width;
     }
 
+    public int get_creatures_size(){
+        return creatures.size();
+    }
+
     public int get_ability_cooldown(){
         return this.ability_cooldown;
     }

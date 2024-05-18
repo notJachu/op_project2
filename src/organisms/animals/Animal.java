@@ -18,7 +18,7 @@ public class Animal extends Creature {
     protected Point move_target() {
         // move the animal
         // done as separate function, so I can override it later
-        List<Point> neighbours = my_world.get_neighbours(this.position, false);
+        List<Point> neighbours = my_world.get_neighbours(this.position, true);
 
         if (neighbours.isEmpty()){
             return this.position;

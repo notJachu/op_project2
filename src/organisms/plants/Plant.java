@@ -48,6 +48,7 @@ public class Plant extends Creature {
 
         @Override
         public boolean collision(Creature other) {
+            my_world.remove_creature(this);
             return true;
         }
 

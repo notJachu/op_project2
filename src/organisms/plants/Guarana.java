@@ -14,6 +14,7 @@ public class Guarana extends Plant{
    @Override
     public boolean collision(Creature other) {
         other.set_power(other.get_power() + 3);
+        my_world.remove_creature(this);
         return true;
     }
 }
