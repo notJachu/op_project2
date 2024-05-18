@@ -72,7 +72,7 @@ public class Creature {
         this.power = power;
     }
 
-    public Creature create_creature(Class<?> organism) {
+    public static Creature create_creature(Class<?> organism) {
         Creature creature = null;
         for (Class<?> org : organisms) {
             if (org == organism) {

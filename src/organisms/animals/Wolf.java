@@ -1,7 +1,7 @@
 package organisms.animals;
 import organisms.Creature;
 
-public class Wolf extends Creature {
+public class Wolf extends Animal {
 
     public Wolf() {
         super(9, 5, 0, null);

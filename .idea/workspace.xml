@@ -4,10 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="55822722-b209-4213-a5ed-3e480e6c8275" name="Changes" comment="added main window">
-      <change afterPath="$PROJECT_DIR$/src/wolf.png" afterDir="false" />
+    <list default="true" id="55822722-b209-4213-a5ed-3e480e6c8275" name="Changes" comment="implemented wolf">
+      <change afterPath="$PROJECT_DIR$/src/trawa.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/copilot/chatSessions/00000000000.xd" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/copilot/chatSessions/00000000000.xd" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/organisms/Creature.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/organisms/Creature.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/organisms/animals/Wolf.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/organisms/animals/Wolf.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/window/MainWindow.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/window/MainWindow.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -211,7 +214,23 @@
       <option name="project" value="LOCAL" />
       <updated>1716043430537</updated>
     </task>
-    <option name="localTasksCounter" value="17" />
+    <task id="LOCAL-00017" summary="window displays game state">
+      <option name="closed" value="true" />
+      <created>1716046290343</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1716046290343</updated>
+    </task>
+    <task id="LOCAL-00018" summary="implemented wolf">
+      <option name="closed" value="true" />
+      <created>1716058060503</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1716058060503</updated>
+    </task>
+    <option name="localTasksCounter" value="19" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -258,6 +277,8 @@
     <MESSAGE value="Minor changes" />
     <MESSAGE value="Implemented Lis" />
     <MESSAGE value="added main window" />
-    <option name="LAST_COMMIT_MESSAGE" value="added main window" />
+    <MESSAGE value="window displays game state" />
+    <MESSAGE value="implemented wolf" />
+    <option name="LAST_COMMIT_MESSAGE" value="implemented wolf" />
   </component>
 </project>

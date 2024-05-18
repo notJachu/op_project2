@@ -17,10 +17,10 @@ public class Main {
 //        world.add_creature(creature);
 //        world.add_creature(plant);
         world.add_creature(trawa);
-        world.print_creatures();
+        //world.print_creatures();
 //        world.remove_creature(creature);
-        world.play_turn();
-        world.print_creatures();
+       // world.play_turn();
+       // world.print_creatures();
 
         SwingUtilities.invokeLater(new Runnable() {
             @Override
