@@ -6,15 +6,15 @@ import java.awt.*;
 import java.util.List;
 import java.util.Random;
 
-public class Antylopa extends Creature {
+public class Antylopa extends Animal {
+
     public Antylopa() {
         super(4, 4, 0, null);
     }
 
-    public Antylopa(int power, int initiative, int age, java.awt.Point position) {
+    public Antylopa(int power, int initiative, int age, Point position) {
         super(power, initiative, age, position);
     }
-
     private boolean run_away(){
         Random rand = new Random();
         boolean will_run = rand.nextBoolean();

@@ -3,6 +3,7 @@ package window;
 import organisms.Creature;
 import organisms.animals.Wolf;
 import organisms.plants.Trawa;
+import organisms.animals.Antylopa;
 import world.World;
 
 import javax.swing.*;
@@ -33,7 +34,8 @@ public class MainWindow {
 
     private final static Map<Class<?>, Image> images = Map.of(
             Wolf.class, new ImageIcon("src/wolf.png").getImage(),
-            Trawa.class, new ImageIcon("src/trawa.png").getImage()
+            Trawa.class, new ImageIcon("src/trawa.png").getImage(),
+            Antylopa.class, new ImageIcon("src/antylopa.png").getImage()
     );
 
     public MainWindow() {

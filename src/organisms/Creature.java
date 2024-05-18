@@ -77,7 +77,9 @@ public class Creature {
         for (Class<?> org : organisms) {
             if (org == organism) {
                 try {
-                    creature = (Creature) organism.getConstructors()[0].newInstance();
+                    System.out.println(organism.getConstructors()[0]);
+                    System.out.println(organism.getConstructors()[1]);
+                    creature = (Creature) organism.getDeclaredConstructor().newInstance();
                 } catch (Exception e) {
                     throw new RuntimeException(e);
                 }
