@@ -1,5 +1,8 @@
 package window;
 
+import organisms.Creature;
+import world.World;
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.KeyEvent;
@@ -12,6 +15,8 @@ public class MainWindow {
     private JPanel infoPanel = create_info_panel();
     private JPanel logPanel = create_log_panel();
     private JLabel current_input;
+    private World world;
+
 
     private final static Image[] images = {
             new ImageIcon("src/wolf.png").getImage(),
@@ -24,13 +29,13 @@ public class MainWindow {
     private JFrame create_window() {
         JFrame window = new JFrame("World");
         window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        window.setSize(800, 600);
+        window.setSize(1920, 1080);
+        window.setResizable(false);
         window.setLocationRelativeTo(null);
         window.setLayout(new BorderLayout());
         window.add(drawPanel, BorderLayout.CENTER);
         window.add(infoPanel, BorderLayout.WEST);
         window.add(logPanel, BorderLayout.EAST);
-        window.addKeyListener(new KeyHandler());
         return window;
     }
 
@@ -58,7 +63,10 @@ public class MainWindow {
         JButton button = new JButton("Next turn");
         button.setFocusable(false);
         button.addActionListener(e -> {
+            world.play_turn();
+            world.print_creatures();
             System.out.println("Next turn");
+            drawPanel.repaint();
         });
         return button;
     }
@@ -67,8 +75,19 @@ public class MainWindow {
         window.setVisible(true);
     }
 
+    public void set_world(World world) {
+        this.world = world;
+    }
+
     private void set_current_input(char input) {
         current_input.setText("Current input: " + input);
+    }
+
+    private void add_creature(int x, int y) {
+        Class<?> creature = (Class<?>) JOptionPane.showInputDialog(window,
+                "Pick and item: ", "Input", JOptionPane.QUESTION_MESSAGE,
+                null, Creature.organisms, "Item 1");;
+        System.out.println("Result: " + creature);
     }
 
     class KeyHandler implements KeyListener {
@@ -107,6 +126,7 @@ public class MainWindow {
             public void mouseClicked(java.awt.event.MouseEvent e) {
                 Point grid_position = get_grid_position(e.getX(), e.getY());
                 System.out.println("Clicked on grid position: " + grid_position);
+                add_creature(grid_position.x, grid_position.y);
             }
         }
 
@@ -114,10 +134,20 @@ public class MainWindow {
         protected void paintComponent(Graphics g) {
             super.paintComponent(g);
             Image image = new ImageIcon("src/wolf.png").getImage();
-            g.setColor(Color.RED);
-            for (int i = 0; i < 3; i++) {
-                for (int j = 0; j < 3; j++) {
-                    g.drawImage(image, i * 100, j * 100, 100, 100, this);
+            g.setColor(Color.DARK_GRAY);
+            int panel_size = Math.min(window.getWidth() -
+                    logPanel.getPreferredSize().width -  infoPanel.getPreferredSize().width, window.getHeight() - 100);
+            int image_size = panel_size / world.get_height();
+
+            for (int i = 0; i < world.get_height(); i++) {
+                for (int j = 0; j < world.get_width(); j++) {
+                    Creature creature = world.get_creature(new Point(i, j));
+                    if (creature == null){
+                        g.fillRect(i * image_size, j * image_size, image_size, image_size);
+                    } else {
+                        g.drawImage(image, i * image_size, j * image_size, image_size, image_size, this);
+                    }
+                    //System.out.println("Drawing image at: " + i + " " + j);
                 }
             }
             //g.fillRect(0, 0, 100, 100);

@@ -26,6 +26,7 @@ public class Main {
             @Override
             public void run() {
                 MainWindow main_window = new MainWindow();
+                main_window.set_world(world);
                 main_window.show();
             }
         });
