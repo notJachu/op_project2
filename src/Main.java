@@ -27,7 +27,7 @@ public class Main {
        // world.play_turn();
        // world.print_creatures();
 
-      world.save_world();
+      //world.save_world();
 
 
         SwingUtilities.invokeLater(new Runnable() {
@@ -42,7 +42,7 @@ public class Main {
 
     private void loadWorld() {
         try {
-            File read_file = new File("world.txt");
+            File read_file = new File("src/saves/world.txt");
             if (!read_file.exists()) {
                 System.out.println("File does not exist");
                 return;

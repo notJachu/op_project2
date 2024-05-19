@@ -76,7 +76,9 @@ public class MainWindow {
         JButton next_turn_button = create_next_turn_button();
         panel.add(next_turn_button);
         JButton save_button = create_save_button();
+        JButton load_button = create_load_button();
         panel.add(save_button);
+        panel.add(load_button);
         current_input = new JLabel("Current input: ");
         panel.add(current_input);
         return panel;
@@ -110,6 +112,18 @@ public class MainWindow {
             world.save_world();
             JOptionPane.showMessageDialog(window, "World was saved",
                     "Information", JOptionPane.INFORMATION_MESSAGE);
+        });
+        return button;
+    }
+
+    private JButton create_load_button() {
+        JButton button = new JButton("Load");
+        button.setFocusable(false);
+        button.addActionListener(e -> {
+            world.load_world();
+            JOptionPane.showMessageDialog(window, "World was loaded",
+                    "Information", JOptionPane.INFORMATION_MESSAGE);
+            drawPanel.repaint();
         });
         return button;
     }

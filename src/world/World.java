@@ -1,5 +1,7 @@
 package world;
 import java.awt.Point;
+import java.io.File;
+import java.io.FileNotFoundException;
 import java.io.FileWriter;
 import java.util.ArrayList;
 import java.util.List;
@@ -44,7 +46,8 @@ public class World {
 
     public void save_world(){
         try {
-            FileWriter writer = new FileWriter("world.txt");
+            FileWriter writer = new FileWriter("src/saves/world.txt");
+            writer.write("0\n");
             writer.write(this.width + " " + this.height + " " + this.ability_cooldown + "\n");
             for (Creature creature : creatures) {
                 Point position = creature.get_position();
@@ -67,7 +70,7 @@ public class World {
     }
 
     public void load_world(Scanner reader){
-        this.width = reader.nextInt();
+            this.width = reader.nextInt();
         this.height = reader.nextInt();
         this.ability_cooldown = reader.nextInt();
 
@@ -93,9 +96,20 @@ public class World {
             creature.set_initiative(initiative);
             creature.set_age(age);
             this.add_creature(creature);
-
         }
+    }
 
+    public void load_world(){
+        File file = new File("src/saves/world.txt");
+        Scanner reader = null;
+        try {
+            reader = new Scanner(file);
+        } catch (FileNotFoundException e) {
+            throw new RuntimeException(e);
+        }
+        int type = reader.nextInt();
+        load_world(reader);
+        reader.close();
     }
 
     //GETTERS
