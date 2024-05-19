@@ -92,6 +92,8 @@ public class MainWindow {
         panel.setLayout(new BoxLayout(panel, BoxLayout.Y_AXIS));
         panel.setPreferredSize(new Dimension(LOG_PANEL_WIDTH, WINDOW_HEIGHT));
         panel.setBackground(Color.GREEN);
+        panel.setFocusable(false);
+        panel.setEnabled(false);
         return panel;
     }
 
@@ -183,6 +185,10 @@ public class MainWindow {
             drawPanel.repaint();
         });
         return button;
+    }
+
+    public JPanel get_log_panel() {
+        return logPanel;
     }
 
     private void set_current_input(KeyEvent e) {

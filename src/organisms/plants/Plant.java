@@ -1,5 +1,6 @@
 package organisms.plants;
 
+import logger.EventLogger;
 import organisms.Creature;
 
 import java.awt.*;
@@ -38,6 +39,8 @@ public class Plant extends Creature {
             int pos = rnd.nextInt(neighbours.size());
             creature.set_position(neighbours.get(pos));
             my_world.add_creature(creature);
+
+            EventLogger.log("New " + creature.getClass().getSimpleName() + " at " + creature.get_position() + "!");
 
         }
 

@@ -1,3 +1,4 @@
+import logger.EventLogger;
 import organisms.Creature;
 import organisms.plants.Plant;
 import organisms.plants.Trawa;
@@ -36,6 +37,9 @@ public class Main {
                 MainWindow main_window = new MainWindow();
                 main_window.set_world(world);
                 main_window.show();
+                EventLogger.set_log_panel(main_window.get_log_panel());
+                EventLogger.create_log_area();
+                //EventLogger.log("Hello World!");
             }
         });
     }

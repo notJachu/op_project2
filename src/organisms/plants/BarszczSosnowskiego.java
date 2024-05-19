@@ -1,4 +1,5 @@
 package organisms.plants;
+import logger.EventLogger;
 import organisms.Creature;
 import organisms.animals.CyberOwca;
 import java.util.List;
@@ -21,6 +22,7 @@ public class BarszczSosnowskiego extends Plant{
         for (Point neighbour : neighbours) {
             Creature creature = my_world.get_creature(neighbour);
             if (creature != null && creature.getClass() != CyberOwca.class) {
+                EventLogger.log("Barszcz Sosnowskiego at " + this.get_position() + " killed " + creature.getClass().getSimpleName() + "!");
                 creature.kill();
             }
         }

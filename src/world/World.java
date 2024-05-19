@@ -8,6 +8,7 @@ import java.util.List;
 import java.util.Scanner;
 
 import com.sun.tools.javac.Main;
+import logger.EventLogger;
 import organisms.Creature;
 
 public class World {
@@ -233,6 +234,8 @@ public class World {
             Creature creature = creatures.get(i);
             creature.increment_age(1);
         }
+
+        EventLogger.update();
 
     }
 

@@ -1,4 +1,5 @@
 package organisms.animals;
+import logger.EventLogger;
 import organisms.Creature;
 
 import java.awt.*;
@@ -45,6 +46,8 @@ public class Animal extends Creature {
         creature.set_position(new_position);
         my_world.add_creature(creature);
 
+        EventLogger.log("Reproduced: " + creature.toString());
+
         return true;
     }
 
@@ -59,10 +62,12 @@ public class Animal extends Creature {
 
         if (other == null){
             my_world.update_creature_position(this, new_position);
+            EventLogger.log(this.getClass().getSimpleName() + " moved to " + new_position);
         } else if (other.getClass() == this.getClass()){
             this.reproduce();
         } else {
             if (other.collision(this)){
+                EventLogger.log(this.getClass().getSimpleName() + " killed " + other.getClass().getSimpleName());
                 my_world.update_creature_position(this, new_position);
             }
         }
@@ -73,6 +78,7 @@ public class Animal extends Creature {
         int pow = other.get_power();
         if (pow < this.power){
             other.kill();
+            EventLogger.log(this.getClass().getSimpleName() + " killed " + other.getClass().getSimpleName());
             return false;
         } else {
             this.kill();

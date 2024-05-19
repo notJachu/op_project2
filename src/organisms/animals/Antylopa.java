@@ -1,5 +1,6 @@
 package organisms.animals;
 
+import logger.EventLogger;
 import organisms.Creature;
 
 import java.awt.*;
@@ -31,6 +32,7 @@ public class Antylopa extends Animal {
         int pos = rand.nextInt(neighbours.size());
         Point new_position = neighbours.get(pos);
         my_world.update_creature_position(this, new_position);
+        EventLogger.log("Antylopa ran to " + new_position.toString() + "!");
         return true;
     }
 
