@@ -148,6 +148,7 @@ public class MainWindow {
         button.addActionListener(e -> {
             world = new World();
             world.load_world();
+
             JOptionPane.showMessageDialog(window, "World was loaded",
                     "Information", JOptionPane.INFORMATION_MESSAGE);
             drawPanel.repaint();
