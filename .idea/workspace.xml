@@ -4,19 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="55822722-b209-4213-a5ed-3e480e6c8275" name="Changes" comment="implemented resizing world">
-      <change afterPath="$PROJECT_DIR$/src/logger/EventLogger.java" afterDir="false" />
+    <list default="true" id="55822722-b209-4213-a5ed-3e480e6c8275" name="Changes" comment="added logs">
       <change afterPath="$PROJECT_DIR$/src/organisms/animals/Tutel.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/copilot/chatSessions/00000000000.xd" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/copilot/chatSessions/00000000000.xd" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/organisms/animals/Animal.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/organisms/animals/Animal.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/organisms/animals/Antylopa.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/organisms/animals/Antylopa.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/organisms/plants/BarszczSosnowskiego.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/organisms/plants/BarszczSosnowskiego.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/organisms/plants/Guarana.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/organisms/plants/Guarana.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/organisms/plants/Plant.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/organisms/plants/Plant.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/window/MainWindow.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/window/MainWindow.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/world/World.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/world/World.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -307,7 +298,15 @@
       <option name="project" value="LOCAL" />
       <updated>1716127055063</updated>
     </task>
-    <option name="localTasksCounter" value="28" />
+    <task id="LOCAL-00028" summary="added logs">
+      <option name="closed" value="true" />
+      <created>1716130030591</created>
+      <option name="number" value="00028" />
+      <option name="presentableId" value="LOCAL-00028" />
+      <option name="project" value="LOCAL" />
+      <updated>1716130030591</updated>
+    </task>
+    <option name="localTasksCounter" value="29" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -338,7 +337,6 @@
       <path value="$PROJECT_DIR$" />
       <path value="$PROJECT_DIR$/.." />
     </ignored-roots>
-    <MESSAGE value="plants can replant" />
     <MESSAGE value="base of animal reproduction implemented" />
     <MESSAGE value="removed redundant loop in replanting" />
     <MESSAGE value="added getters for Creature" />
@@ -363,7 +361,8 @@
     <MESSAGE value="implemented saving normal world" />
     <MESSAGE value="implemented loading normal world" />
     <MESSAGE value="implemented resizing world" />
-    <option name="LAST_COMMIT_MESSAGE" value="implemented resizing world" />
+    <MESSAGE value="added logs" />
+    <option name="LAST_COMMIT_MESSAGE" value="added logs" />
   </component>
   <component name="XDebuggerManager">
     <pin-to-top-manager>
