@@ -4,13 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="55822722-b209-4213-a5ed-3e480e6c8275" name="Changes" comment="forgor about tutel">
+    <list default="true" id="55822722-b209-4213-a5ed-3e480e6c8275" name="Changes" comment="minor fixes">
       <change beforePath="$PROJECT_DIR$/.idea/copilot/chatSessions/00000000000.xd" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/copilot/chatSessions/00000000000.xd" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/organisms/Creature.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/organisms/Creature.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/organisms/animals/Lis.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/organisms/animals/Lis.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/window/MainWindow.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/window/MainWindow.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/wolf.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/wolf.png" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -317,7 +314,15 @@
       <option name="project" value="LOCAL" />
       <updated>1716130303382</updated>
     </task>
-    <option name="localTasksCounter" value="30" />
+    <task id="LOCAL-00030" summary="minor fixes">
+      <option name="closed" value="true" />
+      <created>1716133374914</created>
+      <option name="number" value="00030" />
+      <option name="presentableId" value="LOCAL-00030" />
+      <option name="project" value="LOCAL" />
+      <updated>1716133374914</updated>
+    </task>
+    <option name="localTasksCounter" value="31" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -348,7 +353,6 @@
       <path value="$PROJECT_DIR$" />
       <path value="$PROJECT_DIR$/.." />
     </ignored-roots>
-    <MESSAGE value="removed redundant loop in replanting" />
     <MESSAGE value="added getters for Creature" />
     <MESSAGE value="Animal collision and action implemented" />
     <MESSAGE value="Overwritten get_neighbours for hex world" />
@@ -373,7 +377,8 @@
     <MESSAGE value="implemented resizing world" />
     <MESSAGE value="added logs" />
     <MESSAGE value="forgor about tutel" />
-    <option name="LAST_COMMIT_MESSAGE" value="forgor about tutel" />
+    <MESSAGE value="minor fixes" />
+    <option name="LAST_COMMIT_MESSAGE" value="minor fixes" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -388,6 +393,7 @@
     <pin-to-top-manager>
       <pinned-members>
         <PinnedItemInfo parentTag="java.lang.Class" memberName="classLoader" />
+        <PinnedItemInfo parentTag="window.MainWindow" memberName="world" />
       </pinned-members>
     </pin-to-top-manager>
   </component>

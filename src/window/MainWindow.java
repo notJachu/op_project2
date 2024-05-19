@@ -15,6 +15,7 @@ import java.util.Map;
 public class MainWindow {
     private JFrame window;
     private DrawPanel drawPanel = new DrawPanel();
+    private DrawHexPanel drawHexPanel = new DrawHexPanel();
     private JPanel infoPanel = create_info_panel();
     private JPanel logPanel = create_log_panel();
     private JLabel current_input;
@@ -48,6 +49,7 @@ public class MainWindow {
     public MainWindow() {
         window = create_window();
         image_size = DRAW_PANEL_WIDTH / 20;
+        HexField.setHeight(image_size);
     }
 
     public MainWindow(World world) {
@@ -56,6 +58,7 @@ public class MainWindow {
         int panel_size = Math.min(window.getWidth() -
                 logPanel.getPreferredSize().width -  infoPanel.getPreferredSize().width, WINDOW_HEIGHT - 100);
         image_size = panel_size / world.get_height();
+        HexField.setHeight(image_size);
 
     }
 
@@ -67,7 +70,8 @@ public class MainWindow {
         window.setResizable(false);
         window.setLocationRelativeTo(null);
         window.setLayout(new BorderLayout());
-        window.add(drawPanel, BorderLayout.CENTER);
+        //window.add(drawPanel, BorderLayout.CENTER);
+        window.add(drawHexPanel, BorderLayout.CENTER);
         window.add(infoPanel, BorderLayout.WEST);
         window.add(logPanel, BorderLayout.EAST);
         window.addKeyListener(new KeyHandler());
@@ -147,6 +151,7 @@ public class MainWindow {
         int panel_size = Math.min(window.getWidth() -
                 logPanel.getPreferredSize().width -  infoPanel.getPreferredSize().width, window.getHeight() - 100);
         image_size = panel_size / world.get_height();
+        HexField.setHeight(image_size);
     }
 
     private JButton create_resize_button() {
@@ -172,6 +177,8 @@ public class MainWindow {
                     int panel_size = Math.min(window.getWidth() -
                             logPanel.getPreferredSize().width -  infoPanel.getPreferredSize().width, WINDOW_HEIGHT - 100);
                     image_size = panel_size / world.get_height();
+                    HexField.setHeight(image_size);
+                    drawPanel.invalidate();
                     drawPanel.repaint();
                 } catch (NumberFormatException ev) {
                     JOptionPane.showMessageDialog(null, "Invalid input. Please enter a number.", "Error", JOptionPane.ERROR_MESSAGE);
@@ -272,7 +279,7 @@ public class MainWindow {
         public DrawPanel() {
             addMouseListener(new MouseHandler());
         }
-        private Point get_grid_position(int x, int y) {
+        protected Point get_grid_position(int x, int y) {
             int grid_x = x / image_size;
             int grid_y = y / image_size;
             return new Point(grid_x, grid_y);
@@ -298,7 +305,7 @@ public class MainWindow {
         @Override
         protected void paintComponent(Graphics g) {
             super.paintComponent(g);
-            g.setColor(Color.DARK_GRAY);
+           /* g.setColor(Color.DARK_GRAY);
 
 
             for (int i = 0; i < world.get_height(); i++) {
@@ -314,6 +321,127 @@ public class MainWindow {
                 }
             }
             //g.fillRect(0, 0, 100, 100);
+            */
+        }
+    }
+
+    class DrawHexPanel extends JPanel{
+        public DrawHexPanel() {
+            HexField.setHeight(image_size);
+            addMouseListener(new MouseHandler());
+        }
+
+        class MouseHandler extends MouseAdapter {
+            @Override
+            public void mouseClicked(java.awt.event.MouseEvent e) {
+                Point grid_position = HexField.point_to_grid(e.getX(), e.getY());
+                System.out.println("Clicked on grid position: " + grid_position);
+                if (grid_position.x >= world.get_width() || grid_position.y >= world.get_height()){
+                    return;
+                }
+                Creature creature = world.get_creature(grid_position);
+                if (creature != null){
+                    System.out.println("Clicked on creature: " + creature);
+                    return;
+                }
+                System.out.println("Clicked on grid position: " + grid_position);
+                add_creature(grid_position.x, grid_position.y);
+            }
+        }
+
+        @Override
+        protected void paintComponent(Graphics g) {
+            super.paintComponent(g);
+            g.setColor(Color.BLACK);
+
+            for (int i = 0; i < world.get_height(); i++) {
+                for (int j = 0; j < world.get_width(); j++) {
+                    HexField.draw(g, i, j);
+                    //System.out.println("Drawing image at: " + i + " " + j);
+                }
+            }
+
+        }
+
+    }
+
+    class HexField {
+
+        private static int h = 0;
+        private static int r = 0;
+        private static int s = 0;
+        private static int t = 0;
+
+        public static void setHeight(int height) {
+            h = height;			// h = basic dimension: height (distance between two adj centresr aka size)
+            r = h/2;			// r = radius of inscribed circle
+            s = (int) (h / 1.73205);	// s = (h/2)/cos(30)= (h/2) / (sqrt(3)/2) = h / sqrt(3)
+            t = (int) (r / 1.73205);	// t = (h/2) tan30 = (h/2) 1/sqrt(3) = h / (2 sqrt(3)) = r / sqrt(3)
+        }
+        public static Polygon create_hex(int x0, int y0){
+            int x = x0 + 20;
+            int y = y0 + 20;
+
+            int[] cx,cy;
+
+            cx = new int[] {x+t,x+s+t,x+s+t+t,x+s+t,x+t,x};
+
+            cy = new int[] {y,y,y+r,y+r+r,y+r+r,y+r};
+            return new Polygon(cx,cy,6);
+        }
+
+        public static Point point_to_grid(int ex, int ey){
+            Point res = new Point(0, -0);
+            ex -= 20;
+            ey -= 20;
+
+            int x = (int) (ex/ (s+t));
+            int y = (int) ((ey - (x%2)*r)/h);
+
+            int dx = ex- x*(s+t);
+            int dy = ey - y*h;
+
+            if (ey - (x%2)*r < 0) return res;
+
+            if (x%2==0) {
+                if (dy > r) {
+                    if (dx * r /t < dy - r) {
+                        x--;
+                    }
+                }
+                if (dy < r) {
+                    if ((t - dx)*r/t > dy ) {
+                        x--;
+                        y--;
+                    }
+                }
+            } else {
+                if (dy > h) {
+                    if (dx * r/t < dy - h) {
+                        x--;
+                        y++;
+                    }
+                }
+                if (dy < h) {
+                    if ((t - dx)*r/t > dy - r) {
+                        x--;
+                    }
+                }
+            }
+            res.x = x;
+            res.y = y;
+            return res;
+        }
+        public static void draw(Graphics g, int i, int j) {
+            int x = i * (s+t);
+            int y = j * h + (i%2) * h/2;
+            Polygon hex = create_hex(x,y);
+            //g.setColor(Color.GREEN);
+            g.setClip(hex);
+            g.drawImage(images.get(Trawa.class), x, y, null);
+            //g.fillPolygon(hex);
+            g.setColor(Color.BLACK);
+            g.drawPolygon(hex);
         }
     }
 }
