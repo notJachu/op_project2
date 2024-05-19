@@ -74,6 +74,14 @@ public class Creature {
         this.power = power;
     }
 
+    public void set_initiative(int initiative) {
+        this.initiative = initiative;
+    }
+
+    public void set_age(int age) {
+        this.age = age;
+    }
+
     public static Creature create_creature(Class<?> organism) {
         Creature creature = null;
         for (Class<?> org : organisms) {

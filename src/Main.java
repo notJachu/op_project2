@@ -7,6 +7,11 @@ import world.HexWorld;
 
 import javax.swing.*;
 import java.awt.*;
+import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.util.Scanner;
+import java.io.FileNotFoundException;
 
 public class Main {
     public static void main(String[] args) {
@@ -16,11 +21,14 @@ public class Main {
         World world = new World();
 //        world.add_creature(creature);
 //        world.add_creature(plant);
-        //world.add_creature(trawa);
+        world.add_creature(trawa);
         //world.print_creatures();
 //        world.remove_creature(creature);
        // world.play_turn();
        // world.print_creatures();
+
+      world.save_world();
+
 
         SwingUtilities.invokeLater(new Runnable() {
             @Override
@@ -30,5 +38,28 @@ public class Main {
                 main_window.show();
             }
         });
+    }
+
+    private void loadWorld() {
+        try {
+            File read_file = new File("world.txt");
+            if (!read_file.exists()) {
+                System.out.println("File does not exist");
+                return;
+            }
+            Scanner reader = new Scanner(read_file);
+            int type = reader.nextInt();
+            if (type == 0) {
+                World world = new World();
+                world.load_world(reader);
+            } else {
+                HexWorld world = new HexWorld();
+                world.load_world(reader);
+            }
+        }
+        catch (FileNotFoundException e) {
+            System.out.println("An error occurred.");
+            e.printStackTrace();
+        }
     }
 }

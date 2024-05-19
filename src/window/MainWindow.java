@@ -75,6 +75,8 @@ public class MainWindow {
         panel.setBackground(Color.RED);
         JButton next_turn_button = create_next_turn_button();
         panel.add(next_turn_button);
+        JButton save_button = create_save_button();
+        panel.add(save_button);
         current_input = new JLabel("Current input: ");
         panel.add(current_input);
         return panel;
@@ -101,6 +103,16 @@ public class MainWindow {
         return button;
     }
 
+    private JButton create_save_button() {
+        JButton button = new JButton("Save");
+        button.setFocusable(false);
+        button.addActionListener(e -> {
+            world.save_world();
+            JOptionPane.showMessageDialog(window, "World was saved",
+                    "Information", JOptionPane.INFORMATION_MESSAGE);
+        });
+        return button;
+    }
     public void show() {
         window.setVisible(true);
     }

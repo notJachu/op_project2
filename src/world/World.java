@@ -1,13 +1,16 @@
 package world;
 import java.awt.Point;
+import java.io.FileWriter;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Scanner;
+
 import organisms.Creature;
 
 public class World {
     private final boolean map_type;
-    protected final int width;
-    protected final int height;
+    protected int width;
+    protected int height;
     private int ability_cooldown;
 
     private Point player_input = new Point(0, 0);
@@ -40,10 +43,58 @@ public class World {
     }
 
     public void save_world(){
+        try {
+            FileWriter writer = new FileWriter("world.txt");
+            writer.write(this.width + " " + this.height + " " + this.ability_cooldown + "\n");
+            for (Creature creature : creatures) {
+                Point position = creature.get_position();
+                writer.write(position.x + " " + position.y + " " + creature.get_power() + " " + creature.get_initiative() + " " + creature.get_age() + " " + creature.getClass().getName() + "\n");
+            }
+            writer.close();
+        } catch (Exception e){
+            e.printStackTrace();
+        }
+
 
     }
 
-    public void load_world(){
+    Class<?> string_to_class(String type){
+        try {
+            return Class.forName(type);
+        } catch (ClassNotFoundException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    public void load_world(Scanner reader){
+        this.width = reader.nextInt();
+        this.height = reader.nextInt();
+        this.ability_cooldown = reader.nextInt();
+
+        while (reader.hasNextLine()){
+            String line = reader.nextLine();
+            if (line.isEmpty()){
+                continue;
+            }
+
+            String[] parts = line.split(" ");
+            int x = Integer.parseInt(parts[0]);
+            int y = Integer.parseInt(parts[1]);
+            int power = Integer.parseInt(parts[2]);
+            int initiative = Integer.parseInt(parts[3]);
+            int age = Integer.parseInt(parts[4]);
+            String type = parts[5];
+
+            Class<?> creature_class = string_to_class(type);
+
+            Creature creature = Creature.create_creature(creature_class);
+            creature.set_position(new Point(x, y));
+            creature.set_power(power);
+            creature.set_initiative(initiative);
+            creature.set_age(age);
+            this.add_creature(creature);
+
+        }
 
     }
 
