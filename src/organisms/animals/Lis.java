@@ -1,4 +1,6 @@
 package organisms.animals;
+import organisms.Creature;
+
 import java.awt.Point;
 import java.util.List;
 import java.util.Random;
@@ -21,7 +23,8 @@ public class Lis extends Animal{
         }
 
         for (Point neighbour : neighbours) {
-            if (my_world.get_creature(neighbour).get_power() >= this.power) {
+            Creature creature = my_world.get_creature(neighbour);
+            if (creature != null && creature.get_power() >= this.power) {
                 neighbours.remove(neighbour);
             }
         }

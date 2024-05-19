@@ -1,10 +1,8 @@
 package window;
 
 import organisms.Creature;
-import organisms.animals.Czlowiek;
-import organisms.animals.Wolf;
-import organisms.plants.Trawa;
-import organisms.animals.Antylopa;
+import organisms.animals.*;
+import organisms.plants.*;
 import world.World;
 
 import javax.swing.*;
@@ -33,11 +31,18 @@ public class MainWindow {
 
 
 
-    private final static Map<Class<?>, Image> images = Map.of(
-            Wolf.class, new ImageIcon("src/wolf.png").getImage(),
-            Trawa.class, new ImageIcon("src/trawa.png").getImage(),
-            Antylopa.class, new ImageIcon("src/antylopa.png").getImage(),
-            Czlowiek.class, new ImageIcon("src/human.png").getImage()
+    private final static Map<Class<?>, Image> images = Map.ofEntries(
+            Map.entry(Wolf.class, new ImageIcon("src/wolf.png").getImage()),
+            Map.entry(Antylopa.class, new ImageIcon("src/antylopa.png").getImage()),
+            Map.entry(Lis.class, new ImageIcon("src/lis.png").getImage()),
+            Map.entry(Owca.class, new ImageIcon("src/owca.png").getImage()),
+            Map.entry(Tutel.class, new ImageIcon("src/tutel.png").getImage()),
+            Map.entry(Trawa.class, new ImageIcon("src/trawa.png").getImage()),
+            Map.entry(Mlecz.class, new ImageIcon("src/mlecz.png").getImage()),
+            Map.entry(Guarana.class, new ImageIcon("src/guarana.png").getImage()),
+            Map.entry(Wilcze_jagody.class, new ImageIcon("src/wilcze_jagody.png").getImage()),
+            Map.entry(Czlowiek.class, new ImageIcon("src/human.png").getImage()),
+            Map.entry(BarszczSosnowskiego.class, new ImageIcon("src/barszcz_sosnowskiego.png").getImage())
     );
 
     public MainWindow() {
@@ -125,6 +130,7 @@ public class MainWindow {
         JButton button = new JButton("Load");
         button.setFocusable(false);
         button.addActionListener(e -> {
+            world = new World();
             world.load_world();
             JOptionPane.showMessageDialog(window, "World was loaded",
                     "Information", JOptionPane.INFORMATION_MESSAGE);

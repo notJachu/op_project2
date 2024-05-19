@@ -1,9 +1,7 @@
 package organisms;
 
-import organisms.animals.Antylopa;
-import organisms.animals.Czlowiek;
-import organisms.animals.Wolf;
-import organisms.plants.Trawa;
+import organisms.animals.*;
+import organisms.plants.*;
 import world.World;
 
 import java.awt.*;
@@ -14,7 +12,14 @@ public class Creature {
     public final static Class<?>[] organisms = {
             Wolf.class,
             Antylopa.class,
+            Lis.class,
+            Owca.class,
+            Tutel.class,
             Trawa.class,
+            Mlecz.class,
+            Guarana.class,
+            Wilcze_jagody.class,
+            BarszczSosnowskiego.class,
             Czlowiek.class
     };
 
