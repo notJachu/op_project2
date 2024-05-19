@@ -49,10 +49,11 @@ public class MainWindow {
         this();
         this.world = world;
         int panel_size = Math.min(window.getWidth() -
-                logPanel.getPreferredSize().width -  infoPanel.getPreferredSize().width, window.getHeight() - 100);
+                logPanel.getPreferredSize().width -  infoPanel.getPreferredSize().width, WINDOW_HEIGHT - 100);
         image_size = panel_size / world.get_height();
 
     }
+
 
     private JFrame create_window() {
         JFrame window = new JFrame("World");
@@ -77,8 +78,10 @@ public class MainWindow {
         panel.add(next_turn_button);
         JButton save_button = create_save_button();
         JButton load_button = create_load_button();
+        JButton resize_button = create_resize_button();
         panel.add(save_button);
         panel.add(load_button);
+        panel.add(resize_button);
         current_input = new JLabel("Current input: ");
         panel.add(current_input);
         return panel;
@@ -136,6 +139,50 @@ public class MainWindow {
         int panel_size = Math.min(window.getWidth() -
                 logPanel.getPreferredSize().width -  infoPanel.getPreferredSize().width, window.getHeight() - 100);
         image_size = panel_size / world.get_height();
+    }
+
+    private JButton create_resize_button() {
+        JButton button = new JButton("Resize");
+        button.setFocusable(false);
+        button.addActionListener(e -> {
+            JPanel panel = new JPanel(new GridLayout(2, 2));
+            panel.add(new JLabel("width:"));
+            JTextField textField1 = new JTextField();
+            panel.add(textField1);
+            panel.add(new JLabel("height:"));
+            JTextField textField2 = new JTextField();
+            panel.add(textField2);
+
+            int result = JOptionPane.showConfirmDialog(null, panel, "Enter two numbers", JOptionPane.OK_CANCEL_OPTION, JOptionPane.PLAIN_MESSAGE);
+
+            if (result == JOptionPane.OK_OPTION) {
+                try {
+                    int new_width = Integer.parseInt(textField1.getText());
+                    int new_height = Integer.parseInt(textField2.getText());
+
+                    world = new World(new_height, new_width);
+                    int panel_size = Math.min(window.getWidth() -
+                            logPanel.getPreferredSize().width -  infoPanel.getPreferredSize().width, WINDOW_HEIGHT - 100);
+                    image_size = panel_size / world.get_height();
+                    drawPanel.repaint();
+                } catch (NumberFormatException ev) {
+                    JOptionPane.showMessageDialog(null, "Invalid input. Please enter a number.", "Error", JOptionPane.ERROR_MESSAGE);
+                }
+            } else {
+                System.out.println("Cancelled");
+            }
+        });
+        return button;
+    }
+
+    private JButton create_change_world_button() {
+        JButton button = new JButton("Change world");
+        button.setFocusable(false);
+        button.addActionListener(e -> {
+            world = new World();
+            drawPanel.repaint();
+        });
+        return button;
     }
 
     private void set_current_input(KeyEvent e) {

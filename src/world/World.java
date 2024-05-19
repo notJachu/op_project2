@@ -7,6 +7,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
+import com.sun.tools.javac.Main;
 import organisms.Creature;
 
 public class World {
@@ -111,7 +112,6 @@ public class World {
         load_world(reader);
         reader.close();
     }
-
     //GETTERS
 
     public int get_height(){
