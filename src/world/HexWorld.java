@@ -12,11 +12,19 @@ public class HexWorld extends World{
     };
 
     public HexWorld() {
-        super();
+        this.height = 20;
+        this.width = 20;
+        this.ability_cooldown = -10;
+        this.map_type = true;
+        generate_world();
     }
 
     public HexWorld(int height, int width) {
-        super(height, width);
+        this.height = height;
+        this.width = width;
+        this.ability_cooldown = -10;
+        this.map_type = true;
+        generate_world();
     }
 
     @Override

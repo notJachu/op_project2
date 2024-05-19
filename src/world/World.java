@@ -12,19 +12,19 @@ import logger.EventLogger;
 import organisms.Creature;
 
 public class World {
-    private final boolean map_type;
+    protected boolean map_type;
     protected int width;
     protected int height;
-    private int ability_cooldown;
+    protected int ability_cooldown;
 
-    private Point player_input = new Point(0, 0);
+    protected Point player_input = new Point(0, 0);
     Creature[][] world_map;
     List<Creature> creatures;
 
 
     //CLASS INIT
 
-    private void generate_world() {
+    protected void generate_world() {
         // Generate world
         world_map = new Creature[height][width];
         creatures = new ArrayList<>();
@@ -49,7 +49,11 @@ public class World {
     public void save_world(){
         try {
             FileWriter writer = new FileWriter("src/saves/world.txt");
-            writer.write("0\n");
+            if (this.map_type){
+                writer.write("1\n");
+            } else {
+                writer.write("0\n");
+            }
             writer.write(this.width + " " + this.height + " " + this.ability_cooldown + "\n");
             for (Creature creature : creatures) {
                 Point position = creature.get_position();

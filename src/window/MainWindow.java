@@ -3,6 +3,7 @@ package window;
 import organisms.Creature;
 import organisms.animals.*;
 import organisms.plants.*;
+import world.HexWorld;
 import world.World;
 
 import javax.swing.*;
@@ -19,7 +20,8 @@ public class MainWindow {
     private JPanel infoPanel = create_info_panel();
     private JPanel logPanel = create_log_panel();
     private JLabel current_input;
-    private World world;
+    private static World world;
+    private static boolean hex_mode = false;
 
     private final static int WINDOW_WIDTH = 1920;
     private final static int WINDOW_HEIGHT = 1080;
@@ -28,7 +30,7 @@ public class MainWindow {
     private final static int DRAW_PANEL_WIDTH = WINDOW_WIDTH - SIDE_PANEL_WIDTH - LOG_PANEL_WIDTH;
     private final static int DRAW_PANEL_HEIGHT = WINDOW_HEIGHT;
 
-    private int image_size;
+    private static int image_size;
 
 
 
@@ -70,8 +72,13 @@ public class MainWindow {
         window.setResizable(false);
         window.setLocationRelativeTo(null);
         window.setLayout(new BorderLayout());
-        //window.add(drawPanel, BorderLayout.CENTER);
-        window.add(drawHexPanel, BorderLayout.CENTER);
+
+        if (hex_mode) {
+            window.add(drawHexPanel, BorderLayout.CENTER);
+        } else {
+            window.add(drawPanel, BorderLayout.CENTER);
+        }
+
         window.add(infoPanel, BorderLayout.WEST);
         window.add(logPanel, BorderLayout.EAST);
         window.addKeyListener(new KeyHandler());
@@ -88,9 +95,11 @@ public class MainWindow {
         JButton save_button = create_save_button();
         JButton load_button = create_load_button();
         JButton resize_button = create_resize_button();
+        JButton change_world_button = create_change_world_button();
         panel.add(save_button);
         panel.add(load_button);
         panel.add(resize_button);
+        panel.add(change_world_button);
         current_input = new JLabel("Current input: ");
         panel.add(current_input);
         return panel;
@@ -114,6 +123,9 @@ public class MainWindow {
             world.print_creatures();
             System.out.println(world.get_creatures_size());
             System.out.println("Next turn");
+            drawHexPanel.revalidate();
+            drawPanel.revalidate();
+            drawHexPanel.repaint();
             drawPanel.repaint();
         });
         return button;
@@ -178,8 +190,11 @@ public class MainWindow {
                             logPanel.getPreferredSize().width -  infoPanel.getPreferredSize().width, WINDOW_HEIGHT - 100);
                     image_size = panel_size / world.get_height();
                     HexField.setHeight(image_size);
-                    drawPanel.invalidate();
-                    drawPanel.repaint();
+                    if (hex_mode) {
+                        drawHexPanel.repaint();
+                    } else {
+                        drawPanel.repaint();
+                    }
                 } catch (NumberFormatException ev) {
                     JOptionPane.showMessageDialog(null, "Invalid input. Please enter a number.", "Error", JOptionPane.ERROR_MESSAGE);
                 }
@@ -194,8 +209,21 @@ public class MainWindow {
         JButton button = new JButton("Change world");
         button.setFocusable(false);
         button.addActionListener(e -> {
-            world = new World();
-            drawPanel.repaint();
+            if (hex_mode) {
+                window.remove(drawHexPanel);
+                window.add(drawPanel, BorderLayout.CENTER);
+               hex_mode = false;
+               drawPanel.revalidate();
+                drawPanel.repaint();
+               world = new World();
+            } else {
+                window.remove(drawPanel);
+                window.add(drawHexPanel, BorderLayout.CENTER);
+                drawHexPanel.revalidate();
+                drawHexPanel.repaint();
+                hex_mode = true;
+                world = new HexWorld();
+            }
         });
         return button;
     }
@@ -248,6 +276,7 @@ public class MainWindow {
             new_creature.set_position(new Point(x, y));
             world.add_creature(new_creature);
             drawPanel.repaint();
+            drawHexPanel.repaint();
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -305,7 +334,7 @@ public class MainWindow {
         @Override
         protected void paintComponent(Graphics g) {
             super.paintComponent(g);
-           /* g.setColor(Color.DARK_GRAY);
+            g.setColor(Color.DARK_GRAY);
 
 
             for (int i = 0; i < world.get_height(); i++) {
@@ -321,7 +350,6 @@ public class MainWindow {
                 }
             }
             //g.fillRect(0, 0, 100, 100);
-            */
         }
     }
 
@@ -438,7 +466,16 @@ public class MainWindow {
             Polygon hex = create_hex(x,y);
             //g.setColor(Color.GREEN);
             g.setClip(hex);
-            g.drawImage(images.get(Trawa.class), x, y, null);
+
+            Creature creature = world.get_creature(new Point(i, j));
+            if (creature != null){
+                Image image = images.get(creature.getClass());
+                g.drawImage(image, x, y, null);
+            } else {
+                g.setColor(Color.DARK_GRAY);
+                g.fillPolygon(hex);
+            }
+            //g.drawImage(images.get(Trawa.class), x, y, null);
             //g.fillPolygon(hex);
             g.setColor(Color.BLACK);
             g.drawPolygon(hex);
