@@ -4,11 +4,17 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="55822722-b209-4213-a5ed-3e480e6c8275" name="Changes" comment="fixed Antylopa">
+    <list default="true" id="55822722-b209-4213-a5ed-3e480e6c8275" name="Changes" comment="fixed java syntax bullshit">
+      <change afterPath="$PROJECT_DIR$/src/antylopa.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/human.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/organisms/animals/Czlowiek.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/copilot/chatSessions/00000000000.xd" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/copilot/chatSessions/00000000000.xd" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/organisms/Creature.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/organisms/Creature.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/organisms/animals/Antylopa.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/organisms/animals/Antylopa.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/organisms/animals/Animal.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/organisms/animals/Animal.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/window/MainWindow.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/window/MainWindow.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/world/World.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/world/World.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -251,7 +257,15 @@
       <option name="project" value="LOCAL" />
       <updated>1716060333190</updated>
     </task>
-    <option name="localTasksCounter" value="22" />
+    <task id="LOCAL-00022" summary="fixed java syntax bullshit">
+      <option name="closed" value="true" />
+      <created>1716061568950</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1716061568950</updated>
+    </task>
+    <option name="localTasksCounter" value="23" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -303,15 +317,16 @@
     <MESSAGE value="adding creatures with a mouse click works properly" />
     <MESSAGE value="fixed collision with plant not removing the plant" />
     <MESSAGE value="fixed Antylopa" />
-    <option name="LAST_COMMIT_MESSAGE" value="fixed Antylopa" />
+    <MESSAGE value="fixed java syntax bullshit" />
+    <option name="LAST_COMMIT_MESSAGE" value="fixed java syntax bullshit" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/window/MainWindow.java</url>
-          <line>119</line>
-          <option name="timeStamp" value="6" />
+          <url>file://$PROJECT_DIR$/src/world/World.java</url>
+          <line>160</line>
+          <option name="timeStamp" value="7" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

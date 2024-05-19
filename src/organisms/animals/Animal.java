@@ -51,6 +51,10 @@ public class Animal extends Creature {
     @Override
     public void action() {
         Point new_position = move_target();
+
+        if (new_position.equals(this.position)){
+            return;
+        }
         Creature other = my_world.get_creature(new_position);
 
         if (other == null){

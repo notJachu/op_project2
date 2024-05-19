@@ -16,7 +16,7 @@ public class Main {
         World world = new World();
 //        world.add_creature(creature);
 //        world.add_creature(plant);
-        world.add_creature(trawa);
+        //world.add_creature(trawa);
         //world.print_creatures();
 //        world.remove_creature(creature);
        // world.play_turn();

@@ -1,6 +1,7 @@
 package organisms;
 
 import organisms.animals.Antylopa;
+import organisms.animals.Czlowiek;
 import organisms.animals.Wolf;
 import organisms.plants.Trawa;
 import world.World;
@@ -13,7 +14,8 @@ public class Creature {
     public final static Class<?>[] organisms = {
             Wolf.class,
             Antylopa.class,
-            Trawa.class
+            Trawa.class,
+            Czlowiek.class
     };
 
     protected int power;

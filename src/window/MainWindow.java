@@ -1,6 +1,7 @@
 package window;
 
 import organisms.Creature;
+import organisms.animals.Czlowiek;
 import organisms.animals.Wolf;
 import organisms.plants.Trawa;
 import organisms.animals.Antylopa;
@@ -35,7 +36,8 @@ public class MainWindow {
     private final static Map<Class<?>, Image> images = Map.of(
             Wolf.class, new ImageIcon("src/wolf.png").getImage(),
             Trawa.class, new ImageIcon("src/trawa.png").getImage(),
-            Antylopa.class, new ImageIcon("src/antylopa.png").getImage()
+            Antylopa.class, new ImageIcon("src/antylopa.png").getImage(),
+            Czlowiek.class, new ImageIcon("src/human.png").getImage()
     );
 
     public MainWindow() {
@@ -62,6 +64,7 @@ public class MainWindow {
         window.add(drawPanel, BorderLayout.CENTER);
         window.add(infoPanel, BorderLayout.WEST);
         window.add(logPanel, BorderLayout.EAST);
+        window.addKeyListener(new KeyHandler());
         return window;
     }
 
@@ -90,7 +93,7 @@ public class MainWindow {
         button.setFocusable(false);
         button.addActionListener(e -> {
             world.play_turn();
-            //world.print_creatures();
+            world.print_creatures();
             System.out.println(world.get_creatures_size());
             System.out.println("Next turn");
             drawPanel.repaint();
@@ -109,8 +112,38 @@ public class MainWindow {
         image_size = panel_size / world.get_height();
     }
 
-    private void set_current_input(char input) {
-        current_input.setText("Current input: " + input);
+    private void set_current_input(KeyEvent e) {
+        switch (e.getKeyCode()) {
+            case KeyEvent.VK_UP:
+                world.set_player_input(new Point(0, -1));
+                current_input.setText("Current input: ^");
+                break;
+            case KeyEvent.VK_DOWN:
+                world.set_player_input(new Point(0, 1));
+                current_input.setText("Current input: v");
+                break;
+            case KeyEvent.VK_LEFT:
+                world.set_player_input(new Point(-1, 0));
+                current_input.setText("Current input: <");
+                break;
+            case KeyEvent.VK_RIGHT:
+                world.set_player_input(new Point(1, 0));
+                current_input.setText("Current input: >");
+                break;
+            case KeyEvent.VK_P:
+                int ability = world.get_ability_cooldown();
+                if (ability == -10) {
+                    world.set_ability_cooldown(0);
+                    JOptionPane.showMessageDialog(window, "Ability was used",
+                            "Information", JOptionPane.INFORMATION_MESSAGE);
+                } else {
+                    JOptionPane.showMessageDialog(window, "Can't use ability now",
+                            "Information", JOptionPane.INFORMATION_MESSAGE);
+                }
+            default:
+                return;
+        }
+
     }
 
     private void add_creature(int x, int y) {
@@ -139,7 +172,7 @@ public class MainWindow {
         @Override
         public void keyPressed(KeyEvent e) {
             System.out.println("Key pressed: " + e.getKeyChar());
-            set_current_input(e.getKeyChar());
+            set_current_input(e);
         }
 
         @Override

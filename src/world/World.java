@@ -9,6 +9,8 @@ public class World {
     protected final int width;
     protected final int height;
     private int ability_cooldown;
+
+    private Point player_input = new Point(0, 0);
     Creature[][] world_map;
     List<Creature> creatures;
 
@@ -63,9 +65,22 @@ public class World {
         return this.ability_cooldown;
     }
 
+    public void set_ability_cooldown(int ability_cooldown){
+        this.ability_cooldown = ability_cooldown;
+    }
+
+    public Point get_player_input(){
+        return this.player_input;
+    }
+
+    public void set_player_input(Point player_input){
+        this.player_input = player_input;
+    }
+
     public boolean get_map_type(){
         return this.map_type;
     }
+
 
     public Creature get_creature(Point position){
         return world_map[position.x][position.y];
@@ -95,8 +110,6 @@ public class World {
         world_map[new_position.x][new_position.y] = creature;
         creature.set_position(new_position);
     }
-
-
 
     public List<Point> get_neighbours(Point position, boolean include_occupied) {
         // Get neighbours of the position
@@ -135,6 +148,7 @@ public class World {
             System.out.println(creature);
         }
     }
+
 
     public void play_turn() {
         // Play one turn
