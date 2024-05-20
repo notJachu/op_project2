@@ -66,7 +66,7 @@ public class MainWindow {
 
 
     private JFrame create_window() {
-        JFrame window = new JFrame("World");
+        JFrame window = new JFrame("Jan Stąsiek 197741");
         window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         window.setSize(WINDOW_WIDTH, WINDOW_HEIGHT);
         window.setResizable(false);
