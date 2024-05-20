@@ -18,7 +18,7 @@ public class Tutel extends Animal{
     @Override
     protected Point move_target() {
         double random = Math.random();
-        if (random < 0.25){
+        if (random > 0.25){
             return this.position;
         }
         else return super.move_target();

@@ -4,9 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="55822722-b209-4213-a5ed-3e480e6c8275" name="Changes" comment="added unversioned files">
-      <change beforePath="$PROJECT_DIR$/.idea/copilot/chatSessions/00000000000.xd" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/copilot/chatSessions/00000000000.xd" afterDir="false" />
+    <list default="true" id="55822722-b209-4213-a5ed-3e480e6c8275" name="Changes" comment="sync devices">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/organisms/Creature.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/organisms/Creature.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/organisms/animals/Tutel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/organisms/animals/Tutel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/saves/world.txt" beforeDir="false" afterPath="$PROJECT_DIR$/src/saves/world.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/window/MainWindow.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/window/MainWindow.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -26,17 +28,14 @@
     <option name="ROOT_SYNC" value="SYNC" />
   </component>
   <component name="GitHubPullRequestSearchHistory">{
-  &quot;lastFilter&quot;: {
-    &quot;state&quot;: &quot;OPEN&quot;,
-    &quot;assignee&quot;: &quot;notJachu&quot;
-  }
+  &quot;lastFilter&quot;: {}
 }</component>
   <component name="GitToolBoxStore">
     <option name="projectConfigVersion" value="5" />
   </component>
   <component name="GithubPullRequestsUISettings">{
   &quot;selectedUrlAndAccountId&quot;: {
-    &quot;url&quot;: &quot;https://github.com/notJachu/op_project1.git&quot;,
+    &quot;url&quot;: &quot;https://github.com/notJachu/op_project2.git&quot;,
     &quot;accountId&quot;: &quot;868c6b25-69fc-4ecf-9106-7f9f213af679&quot;
   }
 }</component>
@@ -60,19 +59,9 @@
     &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
     &quot;git-widget-placeholder&quot;: &quot;master&quot;,
     &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;,
     &quot;settings.editor.selected.configurable&quot;: &quot;project.propVCSSupport.DirectoryMappings&quot;
   }
 }</component>
-  <component name="SharedIndexes">
-    <attachedChunks>
-      <set>
-        <option value="jdk-22-openjdk-22-3183f394aec4-bad0321e" />
-      </set>
-    </attachedChunks>
-  </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
@@ -98,255 +87,23 @@
       <option name="project" value="LOCAL" />
       <updated>1715431476675</updated>
     </task>
-    <task id="LOCAL-00003" summary="plants can replant">
+    <task id="LOCAL-00003" summary="get_neighbours implemented">
       <option name="closed" value="true" />
-      <created>1715518348234</created>
+      <created>1715445337291</created>
       <option name="number" value="00003" />
       <option name="presentableId" value="LOCAL-00003" />
       <option name="project" value="LOCAL" />
-      <updated>1715518348234</updated>
+      <updated>1715445337291</updated>
     </task>
-    <task id="LOCAL-00004" summary="base of animal reproduction implemented">
+    <task id="LOCAL-00004" summary="implemented creature comparator and world.play_turn()">
       <option name="closed" value="true" />
-      <created>1715519467602</created>
+      <created>1715446731886</created>
       <option name="number" value="00004" />
       <option name="presentableId" value="LOCAL-00004" />
       <option name="project" value="LOCAL" />
-      <updated>1715519467602</updated>
+      <updated>1715446731886</updated>
     </task>
-    <task id="LOCAL-00005" summary="removed redundant loop in replanting">
-      <option name="closed" value="true" />
-      <created>1715519544300</created>
-      <option name="number" value="00005" />
-      <option name="presentableId" value="LOCAL-00005" />
-      <option name="project" value="LOCAL" />
-      <updated>1715519544300</updated>
-    </task>
-    <task id="LOCAL-00006" summary="added getters for Creature">
-      <option name="closed" value="true" />
-      <created>1715519785108</created>
-      <option name="number" value="00006" />
-      <option name="presentableId" value="LOCAL-00006" />
-      <option name="project" value="LOCAL" />
-      <updated>1715519785108</updated>
-    </task>
-    <task id="LOCAL-00007" summary="Animal collision and action implemented">
-      <option name="closed" value="true" />
-      <created>1715519877007</created>
-      <option name="number" value="00007" />
-      <option name="presentableId" value="LOCAL-00007" />
-      <option name="project" value="LOCAL" />
-      <updated>1715519877007</updated>
-    </task>
-    <task id="LOCAL-00008" summary="Overwritten get_neighbours for hex world">
-      <option name="closed" value="true" />
-      <created>1715877091083</created>
-      <option name="number" value="00008" />
-      <option name="presentableId" value="LOCAL-00008" />
-      <option name="project" value="LOCAL" />
-      <updated>1715877091083</updated>
-    </task>
-    <task id="LOCAL-00009" summary="Implemented Owca">
-      <option name="closed" value="true" />
-      <created>1715976996599</created>
-      <option name="number" value="00009" />
-      <option name="presentableId" value="LOCAL-00009" />
-      <option name="project" value="LOCAL" />
-      <updated>1715976996599</updated>
-    </task>
-    <task id="LOCAL-00010" summary="Implemented Mlecz">
-      <option name="closed" value="true" />
-      <created>1715977011723</created>
-      <option name="number" value="00010" />
-      <option name="presentableId" value="LOCAL-00010" />
-      <option name="project" value="LOCAL" />
-      <updated>1715977011723</updated>
-    </task>
-    <task id="LOCAL-00011" summary="Implemented Guarana">
-      <option name="closed" value="true" />
-      <created>1715977024942</created>
-      <option name="number" value="00011" />
-      <option name="presentableId" value="LOCAL-00011" />
-      <option name="project" value="LOCAL" />
-      <updated>1715977024942</updated>
-    </task>
-    <task id="LOCAL-00012" summary="Implemented BarszczSosnowskiego">
-      <option name="closed" value="true" />
-      <created>1715977037999</created>
-      <option name="number" value="00012" />
-      <option name="presentableId" value="LOCAL-00012" />
-      <option name="project" value="LOCAL" />
-      <updated>1715977037999</updated>
-    </task>
-    <task id="LOCAL-00013" summary="Implemented Antylopa">
-      <option name="closed" value="true" />
-      <created>1715977047134</created>
-      <option name="number" value="00013" />
-      <option name="presentableId" value="LOCAL-00013" />
-      <option name="project" value="LOCAL" />
-      <updated>1715977047134</updated>
-    </task>
-    <task id="LOCAL-00014" summary="Minor changes">
-      <option name="closed" value="true" />
-      <created>1715977078490</created>
-      <option name="number" value="00014" />
-      <option name="presentableId" value="LOCAL-00014" />
-      <option name="project" value="LOCAL" />
-      <updated>1715977078490</updated>
-    </task>
-    <task id="LOCAL-00015" summary="Implemented Lis">
-      <option name="closed" value="true" />
-      <created>1715978045449</created>
-      <option name="number" value="00015" />
-      <option name="presentableId" value="LOCAL-00015" />
-      <option name="project" value="LOCAL" />
-      <updated>1715978045449</updated>
-    </task>
-    <task id="LOCAL-00016" summary="added main window">
-      <option name="closed" value="true" />
-      <created>1716043430537</created>
-      <option name="number" value="00016" />
-      <option name="presentableId" value="LOCAL-00016" />
-      <option name="project" value="LOCAL" />
-      <updated>1716043430537</updated>
-    </task>
-    <task id="LOCAL-00017" summary="window displays game state">
-      <option name="closed" value="true" />
-      <created>1716046290343</created>
-      <option name="number" value="00017" />
-      <option name="presentableId" value="LOCAL-00017" />
-      <option name="project" value="LOCAL" />
-      <updated>1716046290343</updated>
-    </task>
-    <task id="LOCAL-00018" summary="implemented wolf">
-      <option name="closed" value="true" />
-      <created>1716058060503</created>
-      <option name="number" value="00018" />
-      <option name="presentableId" value="LOCAL-00018" />
-      <option name="project" value="LOCAL" />
-      <updated>1716058060503</updated>
-    </task>
-    <task id="LOCAL-00019" summary="adding creatures with a mouse click works properly">
-      <option name="closed" value="true" />
-      <created>1716058286571</created>
-      <option name="number" value="00019" />
-      <option name="presentableId" value="LOCAL-00019" />
-      <option name="project" value="LOCAL" />
-      <updated>1716058286571</updated>
-    </task>
-    <task id="LOCAL-00020" summary="fixed collision with plant not removing the plant">
-      <option name="closed" value="true" />
-      <created>1716059843327</created>
-      <option name="number" value="00020" />
-      <option name="presentableId" value="LOCAL-00020" />
-      <option name="project" value="LOCAL" />
-      <updated>1716059843327</updated>
-    </task>
-    <task id="LOCAL-00021" summary="fixed Antylopa">
-      <option name="closed" value="true" />
-      <created>1716060333190</created>
-      <option name="number" value="00021" />
-      <option name="presentableId" value="LOCAL-00021" />
-      <option name="project" value="LOCAL" />
-      <updated>1716060333190</updated>
-    </task>
-    <task id="LOCAL-00022" summary="fixed java syntax bullshit">
-      <option name="closed" value="true" />
-      <created>1716061568950</created>
-      <option name="number" value="00022" />
-      <option name="presentableId" value="LOCAL-00022" />
-      <option name="project" value="LOCAL" />
-      <updated>1716061568950</updated>
-    </task>
-    <task id="LOCAL-00023" summary="implemented human">
-      <option name="closed" value="true" />
-      <created>1716122148695</created>
-      <option name="number" value="00023" />
-      <option name="presentableId" value="LOCAL-00023" />
-      <option name="project" value="LOCAL" />
-      <updated>1716122148695</updated>
-    </task>
-    <task id="LOCAL-00024" summary="fixed antylopa movement">
-      <option name="closed" value="true" />
-      <created>1716122919897</created>
-      <option name="number" value="00024" />
-      <option name="presentableId" value="LOCAL-00024" />
-      <option name="project" value="LOCAL" />
-      <updated>1716122919897</updated>
-    </task>
-    <task id="LOCAL-00025" summary="implemented saving normal world">
-      <option name="closed" value="true" />
-      <created>1716124647035</created>
-      <option name="number" value="00025" />
-      <option name="presentableId" value="LOCAL-00025" />
-      <option name="project" value="LOCAL" />
-      <updated>1716124647035</updated>
-    </task>
-    <task id="LOCAL-00026" summary="implemented loading normal world">
-      <option name="closed" value="true" />
-      <created>1716125958149</created>
-      <option name="number" value="00026" />
-      <option name="presentableId" value="LOCAL-00026" />
-      <option name="project" value="LOCAL" />
-      <updated>1716125958149</updated>
-    </task>
-    <task id="LOCAL-00027" summary="implemented resizing world">
-      <option name="closed" value="true" />
-      <created>1716127055063</created>
-      <option name="number" value="00027" />
-      <option name="presentableId" value="LOCAL-00027" />
-      <option name="project" value="LOCAL" />
-      <updated>1716127055063</updated>
-    </task>
-    <task id="LOCAL-00028" summary="added logs">
-      <option name="closed" value="true" />
-      <created>1716130030591</created>
-      <option name="number" value="00028" />
-      <option name="presentableId" value="LOCAL-00028" />
-      <option name="project" value="LOCAL" />
-      <updated>1716130030591</updated>
-    </task>
-    <task id="LOCAL-00029" summary="forgor about tutel">
-      <option name="closed" value="true" />
-      <created>1716130303382</created>
-      <option name="number" value="00029" />
-      <option name="presentableId" value="LOCAL-00029" />
-      <option name="project" value="LOCAL" />
-      <updated>1716130303382</updated>
-    </task>
-    <task id="LOCAL-00030" summary="minor fixes">
-      <option name="closed" value="true" />
-      <created>1716133374914</created>
-      <option name="number" value="00030" />
-      <option name="presentableId" value="LOCAL-00030" />
-      <option name="project" value="LOCAL" />
-      <updated>1716133374914</updated>
-    </task>
-    <task id="LOCAL-00031" summary="implemented hex grid">
-      <option name="closed" value="true" />
-      <created>1716140350836</created>
-      <option name="number" value="00031" />
-      <option name="presentableId" value="LOCAL-00031" />
-      <option name="project" value="LOCAL" />
-      <updated>1716140350836</updated>
-    </task>
-    <task id="LOCAL-00032" summary="fixed drawing hexes">
-      <option name="closed" value="true" />
-      <created>1716142991581</created>
-      <option name="number" value="00032" />
-      <option name="presentableId" value="LOCAL-00032" />
-      <option name="project" value="LOCAL" />
-      <updated>1716142991581</updated>
-    </task>
-    <task id="LOCAL-00033" summary="added unversioned files">
-      <option name="closed" value="true" />
-      <created>1716143828139</created>
-      <option name="number" value="00033" />
-      <option name="presentableId" value="LOCAL-00033" />
-      <option name="project" value="LOCAL" />
-      <updated>1716143828139</updated>
-    </task>
-    <option name="localTasksCounter" value="34" />
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -377,53 +134,10 @@
       <path value="$PROJECT_DIR$" />
       <path value="$PROJECT_DIR$/.." />
     </ignored-roots>
-    <MESSAGE value="Implemented Owca" />
-    <MESSAGE value="Implemented Mlecz" />
-    <MESSAGE value="Implemented Guarana" />
-    <MESSAGE value="Implemented BarszczSosnowskiego" />
-    <MESSAGE value="Implemented Antylopa" />
-    <MESSAGE value="Minor changes" />
-    <MESSAGE value="Implemented Lis" />
-    <MESSAGE value="added main window" />
-    <MESSAGE value="window displays game state" />
-    <MESSAGE value="implemented wolf" />
-    <MESSAGE value="adding creatures with a mouse click works properly" />
-    <MESSAGE value="fixed collision with plant not removing the plant" />
-    <MESSAGE value="fixed Antylopa" />
-    <MESSAGE value="fixed java syntax bullshit" />
-    <MESSAGE value="implemented human" />
-    <MESSAGE value="fixed antylopa movement" />
-    <MESSAGE value="implemented saving normal world" />
-    <MESSAGE value="implemented loading normal world" />
-    <MESSAGE value="implemented resizing world" />
-    <MESSAGE value="added logs" />
-    <MESSAGE value="forgor about tutel" />
-    <MESSAGE value="minor fixes" />
-    <MESSAGE value="implemented hex grid" />
-    <MESSAGE value="fixed drawing hexes" />
-    <MESSAGE value="added unversioned files" />
-    <option name="LAST_COMMIT_MESSAGE" value="added unversioned files" />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/organisms/animals/Animal.java</url>
-          <line>55</line>
-          <option name="timeStamp" value="14" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/window/MainWindow.java</url>
-          <line>382</line>
-          <option name="timeStamp" value="27" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
-    <pin-to-top-manager>
-      <pinned-members>
-        <PinnedItemInfo parentTag="java.lang.Class" memberName="classLoader" />
-        <PinnedItemInfo parentTag="window.MainWindow" memberName="world" />
-      </pinned-members>
-    </pin-to-top-manager>
+    <MESSAGE value="first commit" />
+    <MESSAGE value="Revert &quot;first commit&quot;&#10;&#10;This reverts commit 0b8c4453a96e97e95eb36dad56d7c43d5a6fe414." />
+    <MESSAGE value="get_neighbours implemented" />
+    <MESSAGE value="implemented creature comparator and world.play_turn()" />
+    <option name="LAST_COMMIT_MESSAGE" value="implemented creature comparator and world.play_turn()" />
   </component>
 </project>

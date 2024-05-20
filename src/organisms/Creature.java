@@ -46,7 +46,7 @@ public class Creature {
     public static class compare_creatures implements Comparator<Creature> {
 
         public int compare(Creature a, Creature b){
-            return a.initiative - b.initiative;
+            return b.initiative - a.initiative;
         }
     }
 

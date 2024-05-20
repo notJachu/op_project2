@@ -11,7 +11,10 @@ import java.awt.*;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 import java.awt.event.MouseAdapter;
+import java.io.File;
+import java.io.FileNotFoundException;
 import java.util.Map;
+import java.util.Scanner;
 
 public class MainWindow {
     private JFrame window;
@@ -146,7 +149,33 @@ public class MainWindow {
         JButton button = new JButton("Load");
         button.setFocusable(false);
         button.addActionListener(e -> {
-            world = new World();
+
+            File file = new File("src/saves/world.txt");
+            Scanner reader = null;
+            try {
+                reader = new Scanner(file);
+            } catch (FileNotFoundException ev) {
+                throw new RuntimeException(ev);
+            }
+
+            int type = reader.nextInt();
+
+            if (type == 0){
+                world = new World();
+                if (hex_mode){
+                    window.remove(drawHexPanel);
+                    window.add(drawPanel, BorderLayout.CENTER);
+                }
+                hex_mode = false;
+            } else {
+                if (!hex_mode){
+                    window.remove(drawPanel);
+                    window.add(drawHexPanel, BorderLayout.CENTER);
+                }
+                hex_mode = true;
+                world = new HexWorld();
+            }
+
             world.load_world();
 
             JOptionPane.showMessageDialog(window, "World was loaded",
@@ -234,6 +263,16 @@ public class MainWindow {
     }
 
     private void set_current_input(KeyEvent e) {
+        if (world instanceof HexWorld){
+            if (e.getKeyCode() == KeyEvent.VK_OPEN_BRACKET){
+                world.set_player_input(new Point(1, -1));
+                current_input.setText("Current input: [");
+            }
+            else if (e.getKeyCode() == KeyEvent.VK_CLOSE_BRACKET){
+                world.set_player_input(new Point(-1, 1));
+                current_input.setText("Current input: ]");
+            }
+        }
         switch (e.getKeyCode()) {
             case KeyEvent.VK_UP:
                 world.set_player_input(new Point(0, -1));
